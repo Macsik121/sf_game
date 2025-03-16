@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Fight 2</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <table border="4">
+        <tr class="resources-section">
+            <td class="resource-td orbs-resource">
+                <div class="td-wrap green-orbs-resource">
+                    <img src="../../sprites/resources/orb_green.png" alt="green orb" class="resource-img green-orb-img">
+                    <span class="resource-amount green-orbs-resource-amount">0</span>
+                </div>
+                <div class="td-wrap red-orbs-resource">
+                    <img src="../../sprites/resources/orb_red.png" alt="red orb" class="resource-img red-orb-img">
+                    <span class="resource-amount red-orbs-resource-amount">0</span>
+                </div>
+                <div class="td-wrap purple-orbs-resource">
+                    <img src="../../sprites/resources/orb_purple.png" alt="purple orb" class="resource-img purple-orb-img">
+                    <span class="resource-amount purple-orbs-resource-amount">0</span>
+                </div>
+            </td>
+            <td class="resource-td gold-resource">
+                <div class="td-wrap gold-resource-wrap">
+                    <img src="../../sprites/resources/golden-coin.webp" alt="Gold" class="resource-img golden-coin-img">
+                    <span class="resource-amount gold-resource-amount">0</span>
+                </div>
+            </td>
+            <td class="resource-td sensei-respect-resource">
+                <div class="td-wrap sensei-respect-resource-wrap">
+                    <img src="../../sprites/resources/Character_sensei.png" alt="Sensei respect" class="resource-img sensei-img">
+                    <span class="resource-amount sensei-respect-resource-aomunt">0</span>
+                </div>
+            </td>
+        </tr>
+        <tr class="visuals-section">
+            <td
+                class="previous-location-visual switch-location-visual"
+                style="background-image: url(../../sprites/location_switch/tournament_bg_Night_bridge.webp)"
+            >
+                <a href="./location_4.html"></a>
+            </td>
+            <td>
+                <video src="../../locations/location_eagle_loss.mp4" class="main-visuals-video" autoplay muted></video>
+                <audio src="../../locations_tracks/location_eagle_loss.mp3" autoplay></audio>
+            </td>
+            <td
+                class="next-location-visual switch-location-visual"
+                style="background-image: url(../../sprites/location_switch/boss_bg.webp)"
+            >
+                <a href="#"></a>
+            </td>
+        </tr>
+        <tr class="equipment-section">
+            <td class="equipment-td">
+                <div class="td-wrap equipment-magic-wrap">Defeat Lynx to open magic section</div>
+            </td>
+            <td class="equipment-td">
+                <div class="td-wrap equipment-weapon-wrap"><img src="../../sprites/equipment/tonfas.webp" alt="Weapon" class="equipment-weapon equipment-img"></div>
+            </td>
+            <td class="equipment-td">
+                <div class="td-wrap equipment-ranged-weapon-wrap"><img src="../../sprites/equipment/shurikens.webp" alt="Ranged weapon" class="equipment-ranged-weapon equipment-img"></div>
+            </td>
+        </tr>
+    </table>
+    <script src="../scripts/game_logic.js"></script>
+</body>
+</html>

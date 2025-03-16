@@ -1,0 +1,26 @@
+.resources-section .orbs-resource {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.resource-img {
+    width: 50%;
+}
+
+.orbs-resources .td-wrap {
+    width: 33.333%;
+}
+
+.orbs-resource .td-wrap + .td-wrap {
+    margin-left: 15px;
+}
+
+.resource-amount {
+    margin-left: 10px;
+}
+
+.golden-coin-img {
+    width: 25%;
+}

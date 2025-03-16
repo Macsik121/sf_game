@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Sakkal Majalla';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sakkal Majalla'), url('../../sakkal-majalla-2-webfont/majalla.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sakkal Majalla';
+    font-size: 2em;
+    height: 680px;
+    background-image: url(../../sprites/bgs/page_bg.webp);
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border: 2px solid silver;
+    border-collapse: collapse;
+}
+
+td {
+    border: 2px solid silver;
+}
+
+.td-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td:first-child, td:last-child {
+    width: 25%;
+}
+
+td:nth-child(2) {
+    width: 50%;
+}
+
+tr:first-child, tr:last-child {
+    height: 22.222%;
+}
+
+tr:first-child td, tr:last-child td {
+    background-image: url(../../sprites/bgs/bamboo_plank_bg.webp);
+    /* background-size: cover; */
+}
+
+tr:nth-child(2) {
+    height: 55.555%;
+}
+
+.empty-previous-location {
+    background-image: url(sprites/bgs/map_bg.webp);
+    background-position-x: left;
+}
+
+.empty-next-location {
+    background-image: url(sprites/bgs/map_bg.webp);
+    background-position-x: right;
+}

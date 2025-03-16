@@ -1,0 +1,12 @@
+.equipment-img {
+    max-width: 50%;
+}
+
+.equipment-magic-wrap {
+    text-align: center;
+    padding: 20px;
+}
+
+.equipment-ranged-weapon {
+    max-width: 100%;
+}
