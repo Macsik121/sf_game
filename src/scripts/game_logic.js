@@ -23,35 +23,52 @@ class Progress {
     constructor(resources = new Resources()) {
         this.resources = resources;
         this.progress = 0;
+        this.bosses_defeat = [];
+    }
+    resources;
+    progress;
+    bosses_defeat;
+}
+
+class UIProgress extends Progress {
+    constructor() {
+        super();
         this.increase_progress = this.increase_progress.bind(this);
-        
         this.load_progress = this.load_progress.bind(this);
         this.save_progress = this.save_progress.bind(this);
         this.update_resources_visually = this.update_resources_visually.bind(this);
     }
-    resources;
-    progress;
     // called after each fight
-    increase_progress(resources) {
-        for (const resource in resources)
-            this.resources[resource] += resources[resource];
+    increase_progress(resources, time_played = 0, progress_gained = 1) {
+        for (const resource in resources) {
+            this.resources[resource] = Number(
+                (this.resources[resource] + resources[resource])
+                    .toFixed(2)
+            );
+        }
+     // if  time played is less than required, the progress is not to increase
+        if (time_played >= 25) {
+            this.progress += progress_gained;
+            alert(`Your progress is ${this.progress}`);
+            if (this.progress < 7) {}
+        }
 
         this.save_progress();
         this.update_resources_visually();
     }
     // locally store progress
     save_progress() {
-        localStorage.setItem("progress", JSON.stringify(this));
+        localStorage.setItem("progress", JSON.stringify(progress));
     }
     // refresh html according to most relevant progress information out of local storage
     update_resources_visually() {
         const resourcesElements = document.querySelectorAll(".resource-amount");
         // order of the elements on the page MATTERS!!!
         resourcesElements[0].innerHTML = this.resources.green_orbs;
-        resourcesElements[1].innerHTML = progress.resources.red_orbs;
-        resourcesElements[2].innerHTML = progress.resources.purple_orbs;
-        resourcesElements[3].innerHTML = progress.resources.gold;
-        resourcesElements[4].innerHTML = progress.resources.sensei_respect;
+        resourcesElements[1].innerHTML = this.resources.red_orbs;
+        resourcesElements[2].innerHTML = this.resources.purple_orbs;
+        resourcesElements[3].innerHTML = this.resources.gold;
+        resourcesElements[4].innerHTML = this.resources.sensei_respect;
     }
     // load progress from local storage
     load_progress() {
@@ -66,9 +83,22 @@ class Progress {
             this.update_resources_visually();
         }
     }
+    reset_progress() {
+        progress = new Progress();
+        localStorage.clear();
+    }
 }
 
-const progress = new Progress();
+const videos = document.querySelectorAll('video');
+for (const video of videos) {
+    video.addEventListener('ended', function() {
+        video.currentTime = 0;
+        video.play();
+    });
+}
+
+let progress = new UIProgress();
+console.log(progress);
 
 window.onload = progress.load_progress;
 window.onbeforeunload = progress.save_progress;

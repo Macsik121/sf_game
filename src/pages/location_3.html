@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <table border="4">
+    <table>
         <tr class="resources-section">
             <td class="resource-td orbs-resource">
                 <div class="td-wrap green-orbs-resource">
@@ -39,17 +39,22 @@
         <tr class="visuals-section">
             <td
                 class="previous-location-visual switch-location-visual"
-                style="background-image: url(../../sprites/location_switch/survival_bg_Emerald_forest.webp)"
+                style="background-image: url(../../sprites/location_switch/survival_bg_Emerald_forest.webp); background-size: contain;"
             >
                 <a href="./location_2.html"></a>
             </td>
             <td>
-                <video src="../../locations/location_survival_eclpse.mp4" class="main-visuals-video" autoplay muted></video>
+                <video
+                    src="../../locations/location_survival_eclpse.mp4"
+                    class="main-visuals-video"
+                    id="eclipse_survival_gameplay"
+                    autoplay muted controls
+                ></video>
                 <audio src="../../locations_tracks/location_survival_eclpse.mp3" autoplay></audio>
             </td>
             <td
                 class="next-location-visual switch-location-visual"
-                style="background-image: url(../../sprites/location_switch/tournament_bg_Night_bridge.webp)"
+                style="background-image: url(../../sprites/location_switch/tournament_bg_Night_bridge.webp); background-size: contain;"
             >
                 <a href="./location_4.html"></a>
             </td>
@@ -67,5 +72,6 @@
         </tr>
     </table>
     <script src="../scripts/game_logic.js"></script>
+    <script src="../scripts/eclipse_survival.js"></script>
 </body>
 </html>

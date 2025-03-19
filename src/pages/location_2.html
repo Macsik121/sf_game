@@ -44,12 +44,17 @@
                 <a href="./location_1.html"></a>
             </td>
             <td>
-                <video src="../../locations/location_survival_norm.mp4" controls class="main-visuals-video" autoplay muted></video>
+                <video
+                    src="../../locations/location_survival_norm.mp4"
+                    class="main-visuals-video"
+                    id="normal_survival_gameplay"
+                    autoplay muted controls
+                ></video>
                 <audio src="../../locations_tracks/location_survival_norm.mp3" autoplay></audio>
             </td>
             <td
                 class="next-location-visual switch-location-visual"
-                style="background-image: url(../../sprites/location_switch/survival_bg_Emerald_forest.webp)"
+                style="background-image: url(../../sprites/location_switch/survival_bg_Emerald_forest.webp); background-size: contain;"
             >
                 <a href="./location_3.html"></a>
             </td>
@@ -67,5 +72,6 @@
         </tr>
     </table>
     <script src="../scripts/game_logic.js"></script>
+    <script src="../scripts/normal_survival.js"></script>
 </body>
 </html>
