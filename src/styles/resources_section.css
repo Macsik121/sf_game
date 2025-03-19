@@ -1,0 +1,55 @@
+<<<<<<< HEAD
+.resources-section .orbs-resource {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.resource-img {
+    width: 50%;
+}
+
+.orbs-resources .td-wrap {
+    width: 33.333%;
+}
+
+.orbs-resource .td-wrap + .td-wrap {
+    margin-left: 15px;
+}
+
+.resource-amount {
+    margin-left: 10px;
+}
+
+.golden-coin-img {
+    width: 20%;
+}
+=======
+.resources-section .orbs-resource {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.resource-img {
+    width: 50%;
+}
+
+.orbs-resources .td-wrap {
+    width: 33.333%;
+}
+
+.orbs-resource .td-wrap + .td-wrap {
+    margin-left: 15px;
+}
+
+.resource-amount {
+    margin-left: 10px;
+}
+
+.golden-coin-img {
+    width: 25%;
+}
+>>>>>>> c53316f76e43eb455e378f09513e1a8614ecbdcb

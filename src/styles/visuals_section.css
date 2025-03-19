@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+.switch-location-visual a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.switch-location-img {
+    width: 22.2222vw;
+}
+
+.main-visuals-video {
+    width: 55.5555vw;
+}
+=======
+.switch-location-visual {
+    background-size: contain;
+    /* background-position: center center; */
+}
+
+.switch-location-visual a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.switch-location-img {
+    width: 22.2222vw;
+}
+
+.main-visuals-video {
+    width: 55.5555vw;
+}
+>>>>>>> c53316f76e43eb455e378f09513e1a8614ecbdcb
