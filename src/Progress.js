@@ -23,11 +23,11 @@ class Progress {
     constructor(resources = new Resources()) {
         this.resources = resources;
         this.progress = 0;
-        this.bosses_defeat = [];
+        this.bosses_defeated = [];
     }
     resources;
     progress;
-    bosses_defeat;
+    bosses_defeated;
 }
 
 

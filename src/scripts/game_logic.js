@@ -20,23 +20,29 @@ class Resources {
 }
 
 class Progress {
-    constructor(resources = new Resources()) {
+    constructor({
+        resources = new Resources(),
+        progress = 0,
+        bosses_defeated = [],
+    } = {}) {
         this.resources = resources;
-        this.progress = 0;
-        this.bosses_defeat = [];
+        this.progress = progress;
+        this.bosses_defeated = bosses_defeated;
     }
     resources;
     progress;
-    bosses_defeat;
+    bosses_defeated;
 }
 
 class UIProgress extends Progress {
-    constructor() {
-        super();
+    constructor(...args) {
+        super(...args);
+
         this.increase_progress = this.increase_progress.bind(this);
         this.load_progress = this.load_progress.bind(this);
         this.save_progress = this.save_progress.bind(this);
         this.update_resources_visually = this.update_resources_visually.bind(this);
+        this.fix_boss_defeat = this.fix_boss_defeat.bind(this);
     }
     // called after each fight
     increase_progress(resources, time_played = 0, progress_gained = 1) {
@@ -49,15 +55,38 @@ class UIProgress extends Progress {
      // if  time played is less than required, the progress is not to increase
         if (time_played >= 25) {
             this.progress += progress_gained;
-            alert(`Your progress is ${this.progress}`);
-            if (this.progress < 7) {}
+            let str_to_show = `Your progress is ${this.progress}`;
+            // if (this.progress < 7) str_to_show += '. You need to have progress = 7 at least to defeat eagle, boss guard.';
+            // if (this.progress >= 7 && ) str_to_show += '. You can defeat eagle now to have progress = 6 to defeat eagle.';
+            // if (this.progress < 7) str_to_show += '. You need to have progress = 6 to defeat eagle.';
+            alert(str_to_show);
         }
 
-        this.save_progress();
         this.update_resources_visually();
+        this.save_progress();
+    }
+    // fix boss defeat
+    fix_boss_defeat(boss_name = '') {
+        if (!this.bosses_defeated.includes(boss_name))
+            this.bosses_defeated
+                .push(
+                    boss_name.toLowerCase()
+                );
     }
     // locally store progress
-    save_progress() {
+    async save_progress() {
+        // JSON.stringify(progress), а не this,
+        // потому что при уходе со страницы (window.onbeforeunload) выполняется старая версия save_progress,
+        // когда прогресс ещё не загружен,
+        // т.е. window.onbeforeunload присвается save_progress экзмемпляра с нулевыми значениями
+        // e.g. happens the following:
+        // progress = new UIProgress() *нулевые поля*
+        // window.onbeforeunload = progress.save_progress *метод будет сохранять нулевые значения*
+        const res = await fetch('/save-progress', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', },
+            body: JSON.stringify(progress),
+        });
         localStorage.setItem("progress", JSON.stringify(progress));
     }
     // refresh html according to most relevant progress information out of local storage
@@ -72,15 +101,12 @@ class UIProgress extends Progress {
     }
     // load progress from local storage
     load_progress() {
-        const progress = JSON.parse(localStorage.getItem("progress"));
-        console.log(this);
+        const progress_saved = JSON.parse(localStorage.getItem("progress"));
         
         if (progress) {
-            for (const resource in progress.resources) {
-                this.resources[resource] = progress.resources[resource];
-            }
-            this.progress = progress.progress;
-            this.update_resources_visually();
+            progress = new UIProgress(progress_saved);
+            
+            progress.update_resources_visually();
         }
     }
     reset_progress() {
@@ -98,8 +124,7 @@ for (const video of videos) {
 }
 
 let progress = new UIProgress();
-console.log(progress);
 
-window.onload = progress.load_progress;
-window.onbeforeunload = progress.save_progress;
+window.addEventListener('load', progress.load_progress);
+window.addEventListener('beforeunload', progress.save_progress);
 window.progress = progress;

@@ -1,7 +1,6 @@
 const video = document.getElementById("tournament_gameplay");
 
 video.addEventListener("ended", function() {
-    const progress = window.progress;
     const blessings_won = {
         green_orbs: 18,
         red_orbs: 3,

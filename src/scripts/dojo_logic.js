@@ -8,11 +8,11 @@ window.addEventListener('beforeunload', () => {
                 .toFixed(2)
         );
 
-    window.progress.increase_progress({
+    progress.increase_progress({
         sensei_respect: sensei_respect_calculated,
     });
 });
 
 video.addEventListener('ended', () => {
-    window.progress.increase_progress({ sensei_respect, });
+    progress.increase_progress({ sensei_respect, });
 });

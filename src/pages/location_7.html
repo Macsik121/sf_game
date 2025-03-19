@@ -70,7 +70,12 @@
                     id="lynx_claws_train_gameplay"
                     autoplay muted controls
                 ></video>
-                <audio src="../../locations_tracks/location_dojo.mp3" autoplay></audio>
+                <!-- the audio is wrong -->
+                <audio
+                    src="../../locations_tracks/location_winning_dojo.mp3"
+                    class="gameplay_track"
+                    autoplay loop
+                ></audio>
             </td>
             <td
                 class="next-location-visual switch-location-visual"
@@ -102,6 +107,6 @@
         </tr>
     </table>
     <script src="../scripts/game_logic.js"></script>
-    <script src="../scripts/dojo_logic.js"></script>
+    <script src="../scripts/winning_dojo_logic.js"></script>
 </body>
 </html>

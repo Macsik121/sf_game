@@ -10,12 +10,12 @@ function calc_depending_on_time(value) {
 }
 
 window.addEventListener('beforeunload', () => {
-    window.progress.increase_progress({
+    progress.increase_progress({
         green_orbs: calc_depending_on_time(green_orbs),
         gold: calc_depending_on_time(gold),
     }, video.currentTime);
 });
 
 video.addEventListener('ended', () => {
-    window.progress.increase_progress({ green_orbs, gold, }, video.currentTime);
+    progress.increase_progress({ green_orbs, gold, }, video.currentTime);
 });

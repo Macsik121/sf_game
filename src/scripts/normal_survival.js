@@ -14,9 +14,9 @@ window.addEventListener('beforeunload', () => {
         green_orbs: calc_depending_on_time(green_orbs),
         gold: calc_depending_on_time(gold),
     };
-    window.progress.increase_progress(blessings_won, video.currentTime);
+    progress.increase_progress(blessings_won, video.currentTime);
 });
 
 video.addEventListener('ended', () => {
-    window.progress.increase_progress({ green_orbs, gold, }, video.duration);
+    progress.increase_progress({ green_orbs, gold, }, video.duration);
 });
