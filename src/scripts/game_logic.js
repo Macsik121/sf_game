@@ -1,38 +1,5 @@
-class Resources {
-    constructor({
-        green_orbs = 0,
-        red_orbs = 0,
-        purple_orbs = 0,
-        gold = 0,
-        sensei_respect = 0,
-    } = {}) {
-        this.green_orbs = green_orbs;
-        this.red_orbs = red_orbs;
-        this.purple_orbs = purple_orbs;
-        this.gold = gold;
-        this.sensei_respect = sensei_respect;
-    }
-    green_orbs;
-    red_orbs;
-    purple_orbs;
-    gold;
-    sensei_respect;
-}
-
-class Progress {
-    constructor({
-        resources = new Resources(),
-        progress = 0,
-        bosses_defeated = [],
-    } = {}) {
-        this.resources = resources;
-        this.progress = progress;
-        this.bosses_defeated = bosses_defeated;
-    }
-    resources;
-    progress;
-    bosses_defeated;
-}
+// Progress class is loaded from .html file
+// Real Progress class in Progress.js file
 
 class UIProgress extends Progress {
     constructor(...args) {
@@ -84,7 +51,7 @@ class UIProgress extends Progress {
         // window.onbeforeunload = progress.save_progress *метод будет сохранять нулевые значения*
         const res = await fetch('/save-progress', {
             method: 'POST',
-            headers: { 'content-type': 'application/json', },
+            headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(progress),
         });
         localStorage.setItem("progress", JSON.stringify(progress));

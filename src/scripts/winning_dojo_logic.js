@@ -11,5 +11,6 @@ window.addEventListener('load', () => {
     } else {
         video.src = init_video_src;
         audio.src = init_audio_src;
+        audio.currentTime += 11;
     }
 });

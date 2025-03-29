@@ -5,8 +5,8 @@ const app = express();
 
 let progress = new Progress();
 
-app.use('/', express.static('src/pages'));
 app.use('/', express.static('src'));
+app.get('/', (req, res) => res.redirect('/pages/location_1.html'));
 app.use('/sprites', express.static('sprites'));
 app.use('/locations', express.static('locations'));
 app.use('/locations_tracks', express.static('locations_tracks'));
@@ -16,8 +16,9 @@ app.use(express.json());
 
 app.get('/load-progress', (req, res) => res.send(progress));
 app.post('/save-progress', (req, res) => {
-    progress = { ...progress, ...req.body.progress, };
-    console.log(progress);
+    progress = { ...progress, ...req.body, };
+    console.log(`Progress out of save-progress:`);
+    console.log(req.body);
     res.status(200).send("Progress is saved");
 });
 

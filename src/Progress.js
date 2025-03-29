@@ -20,15 +20,20 @@ class Resources {
 }
 
 class Progress {
-    constructor(resources = new Resources()) {
+    constructor({
+        resources = new Resources(),
+        progress = 0,
+        bosses_defeated = [],
+    } = {}) {
         this.resources = resources;
-        this.progress = 0;
-        this.bosses_defeated = [];
+        this.progress = progress;
+        this.bosses_defeated = bosses_defeated;
     }
     resources;
     progress;
     bosses_defeated;
 }
 
-
-module.exports = Progress;
+try {
+    module.exports = Progress;
+} catch {}
