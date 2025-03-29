@@ -1,6 +1,8 @@
 // Progress class is loaded from .html file
 // Real Progress class in Progress.js file
 
+const areLocationsQuality = false;
+
 class UIProgress extends Progress {
     constructor(...args) {
         super(...args);

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const Progress = require('./Progress.js');
 const express = require('express');
@@ -6,6 +7,7 @@ const app = express();
 let progress = new Progress();
 
 app.use('/', express.static('src'));
+app.use('/bad_quality_locations', express.static('bad_quality_locations'));
 app.get('/', (req, res) => res.redirect('/pages/location_1.html'));
 app.use('/sprites', express.static('sprites'));
 app.use('/locations', express.static('locations'));

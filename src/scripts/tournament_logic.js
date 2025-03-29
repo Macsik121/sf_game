@@ -1,5 +1,7 @@
 const video = document.getElementById("tournament_gameplay");
 
+if (!areLocationsQuality) video.src = '/bad_quality_locations/location_tournament.mp4';
+
 video.addEventListener("ended", function() {
     const blessings_won = {
         green_orbs: 18,

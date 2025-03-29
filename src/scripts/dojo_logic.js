@@ -1,6 +1,8 @@
 const video = document.getElementById('dojo_gameplay') || document.getElementById('lynx_claws_train_gameplay');
 const sensei_respect = 1;
 
+if (!areLocationsQuality) video.src = '/bad_quality_locations/location_dojo.mp4';
+
 window.addEventListener('beforeunload', () => {
     const sensei_respect_calculated = 
         Number(

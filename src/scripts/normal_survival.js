@@ -1,6 +1,8 @@
 const video = document.getElementById('normal_survival_gameplay');
 const green_orbs = 4, gold = 1350;
 
+if (!areLocationsQuality) video.src = '/bad_quality_locations/location_survival_norm.mp4';
+
 function calc_depending_on_time(value) {
     return Number(
         Math.round(

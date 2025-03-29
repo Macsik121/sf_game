@@ -1,5 +1,8 @@
 const video = document.getElementById('lynx_claws_train_gameplay');
 const audio = document.getElementsByClassName('gameplay_track')[0];
+
+if (!areLocationsQuality) video.src = '/bad_quality_locations/winning_dojo.mp4';
+
 const init_video_src = video.src;
 const init_audio_src = audio.src;
 video.src = '';

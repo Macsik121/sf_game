@@ -1,4 +1,3 @@
 locations
-locations_tracks
-sprites
 /node_modules/
+*.tar.gz

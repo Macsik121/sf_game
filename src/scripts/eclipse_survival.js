@@ -1,6 +1,8 @@
 const video = document.getElementById('eclipse_survival_gameplay');
 const green_orbs = 17, gold = 1490;
 
+if (!areLocationsQuality) video.src = '/bad_quality_locations/location_survival_eclpse.mp4';
+
 function calc_depending_on_time(value) {
     return Number(
         Math.round(
