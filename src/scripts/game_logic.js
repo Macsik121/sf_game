@@ -51,12 +51,13 @@ class UIProgress extends Progress {
         // e.g. happens the following:
         // progress = new UIProgress() *нулевые поля*
         // window.onbeforeunload = progress.save_progress *метод будет сохранять нулевые значения*
+        
+        localStorage.setItem("progress", JSON.stringify(progress));
         const res = await fetch('/save-progress', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(progress),
         });
-        localStorage.setItem("progress", JSON.stringify(progress));
     }
     // refresh html according to most relevant progress information out of local storage
     update_resources_visually() {
