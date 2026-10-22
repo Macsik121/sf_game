@@ -11,14 +11,14 @@ How to gain the progress in the game to show the working application:
 - grind progress on the tournament location - it almost immediately gives +1 progress pts
 - progress >= 7 - For fighting the Lynx Boss bodyguard
 - progress >= 14 - For fighting the Lynx Boss
-- have no idea how to unbound the strong sync of localStorage with the server
+- have no idea how to unbound the strong sync between localStorage with the server
 
 ## Key Ideas
 I'm a little bit proud of this project as here I tried to implement OOP concept.
 - 2 main classes representing the data of this small app
 - tried to isolate the UI logic by moving the necessary UI logic to the class
 
-# Resources & Progress
+## Диаграммы отображающие работу
 
 ```mermaid
 classDiagram
