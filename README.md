@@ -17,7 +17,9 @@ I'm a little bit proud of this project as here I tried to implement OOP concept.
 - 2 main classes representing the data of this small app
 - tried to isolate the UI logic by moving the necessary UI logic to the class
 
-mermaid
+# Resources & Progress
+
+```mermaid
 classDiagram
     class Resources {
         +green_orbs: number
@@ -36,10 +38,11 @@ classDiagram
     }
 
     Progress --> Resources : contains
+```
 
-Client-Side State Management (Inheritance Pattern)
+## Client-Side State Management (Inheritance Pattern)
 
-mermaid
+```mermaid
 classDiagram
     class Progress {
         +resources: Resources
@@ -61,10 +64,11 @@ classDiagram
     Progress <|-- UIProgress : extends
     UIProgress --> DOM : manipulates
     UIProgress --> Server : syncs with
+```
 
-Server Architecture
+## Server Architecture
 
-mermaid
+```mermaid
 classDiagram
     class ExpressServer {
         -progress: Progress
@@ -81,12 +85,13 @@ classDiagram
 
     ExpressServer --> Progress : maintains
     ExpressServer --> ProgressController : handles routes
+```
 
 ---
 
-Component Interaction Diagram
+## Component Interaction Diagram
 
-mermaid
+```mermaid
 graph TB
     subgraph "Server Layer"
         Server[Express Server]
@@ -131,3 +136,4 @@ graph TB
     UIProgress -->|syncs with| API
     API -->|updates| ServerStorage
     Server -->|serves| Progress
+```
