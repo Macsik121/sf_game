@@ -107,12 +107,8 @@ graph TB
     subgraph "Game Logic Modules"
         GameLogic[game_logic.js<br/>UI System Controller]
         DojoLogic[dojo_logic.js]
-        BossLogic[boss_logic.js]
-        BossGuard[boss_guard_logic.js]
-        Tournament[tournament_logic.js]
+        ...[....js]
         WinningDojo[winning_dojo_logic.js]
-        EclipseSurvival[eclipse_survival.js]
-        NormalSurvival[normal_survival.js]
     end
 
     subgraph "External Storage"
@@ -126,11 +122,8 @@ graph TB
     GameLogic -->|instantiates| UIProgress
     DojoLogic -->|uses| UIProgress
     BossLogic -->|uses| UIProgress
-    BossGuard -->|uses| UIProgress
-    Tournament -->|uses| UIProgress
+    ... --> |...| UIProgress
     WinningDojo -->|checks| UIProgress
-    EclipseSurvival -->|uses| UIProgress
-    NormalSurvival -->|uses| UIProgress
 
     UIProgress -->|saves to| LocalStorage
     UIProgress -->|syncs with| API
