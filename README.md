@@ -11,6 +11,7 @@ How to gain the progress in the game to show the working application:
 - grind progress on the tournament location - it almost immediately gives +1 progress pts
 - progress = 5 - For fighting the Lynx Boss bodyguard
 - progress = 10 - For fighting the Lynx Boss
+- have no idea how to unbound the strong sync of localStorage with the server
 
 ## Key Ideas
 I'm a little bit proud of this project as here I tried to implement OOP concept.
